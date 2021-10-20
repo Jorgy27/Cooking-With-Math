@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MovingObject
   - CookingMaterial
+  - RecipeUI
   layers:
   - Default
   - TransparentFX

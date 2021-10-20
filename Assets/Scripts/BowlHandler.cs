@@ -15,6 +15,8 @@ public class BowlHandler : MonoBehaviour
     private int collisionCounter;
     private int numberOfMaterials;
 
+    public static List<Items> itemsUsed = new List<Items>();
+
     private void Start()
     {
         originalScale = bowlContent.transform.localScale;
@@ -42,6 +44,10 @@ public class BowlHandler : MonoBehaviour
         {
             bowlContent.transform.localScale += scaleChange;
             bowlContent.transform.position += positionChange;
+            string itemNameCol = other.name;
+            
+            var newItemAdded = new Items(itemNameCol, 0, "");
+            itemsUsed.Add(newItemAdded);
 
         }
         

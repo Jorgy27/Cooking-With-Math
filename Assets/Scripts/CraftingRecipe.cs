@@ -4,34 +4,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public struct ItemAmount
+public struct Items
 {
     [SerializeField]
-    private string itemName;
+    public string itemName;
     [SerializeField]
     [Range(1,999)]
-    private float itemAmount;
+    public float itemAmount;
     [SerializeField]
-    private string itemAmountLabel;
+    public string itemAmountLabel;
+
+    public Items(string itemName, float itemAmount, string itemAmountLabel)
+    {
+        this.itemName = itemName;
+        this.itemAmount = itemAmount;
+        this.itemAmountLabel = itemAmountLabel;
+    }
 }
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "New Recipe", menuName = "Recipe")]
 public class CraftingRecipe : ScriptableObject
 {
     [SerializeField]
-    private List<ItemAmount> Materials;
+    public List<Items> materials;
 
-    public bool CanCraft(/*get Items given*/) {
-        foreach(ItemAmount itemAmount in Materials)
+    public bool CanCraft() {
+        bool flag = true;
+        foreach(Items items in materials)
         {
-            //check if amount of items given equals to the amount required
+            for(int i=0;i < BowlHandler.itemsUsed.Count; i++){
+                if (items.itemName == BowlHandler.itemsUsed[i].itemName && items.itemAmount != BowlHandler.itemsUsed[i].itemAmount)
+                {
+                    flag = false;
+                }
+            }
         }
-        return true;
+        return flag;
     }
 
     public void Craft()
     {
-        if( CanCraft(/* items given*/))
+        if( CanCraft())
         {
             //show congratulations
         }

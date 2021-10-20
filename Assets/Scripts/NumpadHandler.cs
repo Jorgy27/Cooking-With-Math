@@ -9,9 +9,9 @@ public class NumpadHandler : MonoBehaviour
 {
     [SerializeField]
     private GameObject numHead;
-    private string numValue="";
+    private string numInput="";
 
-    public static float itemAmount = 0;
+    public static float numValue = 0;
 
     public void OnClickNumber(GameObject button)
     {
@@ -20,26 +20,36 @@ public class NumpadHandler : MonoBehaviour
 
         if (!inputText.Equals("Επιβεβαίωση"))
         {
-            if (inputText.Equals("Δ") && oldText.Length != 0)
+            if (inputText.Equals("C") && oldText.Length != 0)
             {
                 string newText = oldText.Remove(oldText.Length - 1);
-                numValue = newText;
+                numInput = newText;
             }
-            else if (!inputText.Equals("Δ"))
+            else if (!inputText.Equals("C"))
             {
-                numValue = numHead.GetComponent<Text>().text + inputText;
+                numInput = numHead.GetComponent<Text>().text + inputText;
+               
             }
 
-            numHead.GetComponent<Text>().text = numValue;
+            numHead.GetComponent<Text>().text = numInput;
         }
         else
-        {   
+        {
+            //set the value of the amount chosen
+            numValue = float.Parse(numInput);
+
+            int lastItemUsed = BowlHandler.itemsUsed.Count - 1; //get the index of the last item used
+            //creates the item that will update the values{itemAmount,itemAmountLabel} of the list itemsUsed
+            Items updateItem = BowlHandler.itemsUsed[lastItemUsed];
+            updateItem.itemAmount = numValue;
+            updateItem.itemAmountLabel = numInput;
+            //update the list item. It was originaly holding only the name of the item, now it has both the values
+            BowlHandler.itemsUsed[lastItemUsed] = updateItem;
+            
             //reset the numpad values and turn the ui off
-            itemAmount = float.Parse(numValue);
-            Debug.Log(itemAmount);
-            itemAmount = 0;
-            numValue = "";
-            numHead.GetComponent<Text>().text = numValue;
+            numValue = 0;
+            numInput = "";
+            numHead.GetComponent<Text>().text = numInput;
             this.gameObject.SetActive(false);
         }
         
