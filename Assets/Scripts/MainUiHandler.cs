@@ -7,7 +7,10 @@ public class MainUiHandler : MonoBehaviour
 {
     [SerializeField]
     private GameObject recipePanel;
-    
+
+    [SerializeField]
+    private GameObject questionnairePanel;
+
     public void showRecipe(CraftingRecipe recipe)
     {
         recipePanel.SetActive(true);
@@ -23,5 +26,10 @@ public class MainUiHandler : MonoBehaviour
     public void hideRecipe()
     {
         recipePanel.SetActive(false);
+    }
+
+    public void onCraftClick(CraftingRecipe recipe)
+    {
+        recipe.Craft(questionnairePanel);
     }
 }
