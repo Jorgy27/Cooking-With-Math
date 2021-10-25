@@ -15,12 +15,12 @@ D:/Cooking With Math
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-64700
+54271
 Successfully changed project path to: D:/Cooking With Math
 D:/Cooking With Math
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 82.21 ms, found 5 plugins.
-Preloading 2 native plugins for Editor in 28.00 ms.
+Refreshing native plugins compatible for Editor in 59.54 ms, found 5 plugins.
+Preloading 2 native plugins for Editor in 40.33 ms.
 Initialize engine version: 2020.3.20f1 (41c4e627c95f)
 [Subsystems] Discovering subsystems at path D:/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path D:/Cooking With Math/Assets
@@ -35,5 +35,5 @@ Initialize mono
 Mono path[0] = 'D:/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Unity/Hub/Editor/2020.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/Unity/Hub/Editor/2020.3.20f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56192
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56696
 Begin MonoManager ReloadAssembly

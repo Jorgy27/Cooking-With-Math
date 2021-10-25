@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fee08513dc6e60448cd5838f8fd2386, type: 3}
-  m_Name: Crepe
+  m_Name: "\u039A\u03C1\u03AD\u03C0\u03B5\u03C2"
   m_EditorClassIdentifier: 
   materials:
   - itemName: "\u0391\u03BB\u03B5\u03CD\u03C1\u03B9"
-    itemAmount: 70
-    itemAmountLabel: "70\u03B3\u03C1"
+    itemAmount: 75
+    itemAmountLabel: "75\u03B3\u03C1"
   - itemName: "\u0393\u03AC\u03BB\u03B1"
-    itemAmount: 70
-    itemAmountLabel: "70\u03B3\u03C1"
+    itemAmount: 75
+    itemAmountLabel: "75\u03B3\u03C1"
   - itemName: "\u0391\u03C5\u03B3\u03AC"
     itemAmount: 2
     itemAmountLabel: 2

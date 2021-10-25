@@ -13,6 +13,7 @@ public struct Items
     public float itemAmount;
     [SerializeField]
     public string itemAmountLabel;
+ 
 
     public Items(string itemName, float itemAmount, string itemAmountLabel)
     {
@@ -52,16 +53,4 @@ public class CraftingRecipe : ScriptableObject
         return flag;
     }
 
-    public void Craft(GameObject questionnairePanel)
-    {
-        if( CanCraft())
-        {
-            questionnairePanel.SetActive(true);
-        }
-        else
-        {
-            //activate the failedRecipeUI in which the player can restart
-            Debug.Log("No");
-        }
-    }
 }
