@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: "\u039A\u03C1\u03AD\u03C0\u03B5\u03C2"
   m_EditorClassIdentifier: 
   materials:
-  - itemName: "\u0391\u03BB\u03B5\u03CD\u03C1\u03B9"
-    itemAmount: 75
-    itemAmountLabel: "75\u03B3\u03C1"
-  - itemName: "\u0393\u03AC\u03BB\u03B1"
-    itemAmount: 75
-    itemAmountLabel: "75\u03B3\u03C1"
   - itemName: "\u0391\u03C5\u03B3\u03AC"
     itemAmount: 2
     itemAmountLabel: 2
+  - itemName: "\u0391\u03BB\u03B5\u03CD\u03C1\u03B9"
+    itemAmount: 120
+    itemAmountLabel: "120\u03B3\u03C1"
+  - itemName: "\u0393\u03AC\u03BB\u03B1"
+    itemAmount: 120
+    itemAmountLabel: "120\u03B3\u03C1"
