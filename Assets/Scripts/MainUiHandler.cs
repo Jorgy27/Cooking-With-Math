@@ -4,11 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MainUiHandler : MonoBehaviour
 {
     [SerializeField]
     private GameObject RecipePanel;
+
+    [SerializeField]
+    private GameObject TipPanel;
 
     [SerializeField]
     private GameObject QuestionnairePanel;
@@ -30,20 +34,39 @@ public class MainUiHandler : MonoBehaviour
     //enable and load the recipe panel
     public void showRecipe()
     {
-        RecipePanel.SetActive(true);
-        List<Items> materials = recipe.materials;
-        string materialsText = "";
-        foreach (Items item in materials)
+        //if the recipe is empty then show a tip instead of the recipe
+        if (recipe.materials.Count == 0)
         {
-            materialsText += item.itemAmountLabel + " " + item.itemName + "\n";
+            showTipPanel();
         }
-        RecipePanel.GetComponentInChildren<TextMeshProUGUI>().SetText(materialsText);
+        else
+        {
+            List<Items> materials = recipe.materials;
+            RecipePanel.SetActive(true);
+            string materialsText = "";
+            foreach (Items item in materials)
+            {
+                materialsText += item.itemAmountLabel + " " + item.itemName + "\n";
+            }
+            RecipePanel.GetComponentInChildren<TextMeshProUGUI>().SetText(materialsText);
+            
+        }
         GameObject.Find("RecipeTitle").GetComponent<Text>().text = recipe.name;
     }
-
+   
     public void hideRecipe()
     {
         RecipePanel.SetActive(false);
+    }
+
+    private void showTipPanel()
+    {
+        TipPanel.SetActive(true);
+        
+    }
+    public void hideTipPanel()
+    {
+        TipPanel.SetActive(false);
     }
 
     public void onCraftClick(CraftingRecipe recipe)

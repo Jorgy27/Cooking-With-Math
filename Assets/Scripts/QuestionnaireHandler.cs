@@ -30,7 +30,6 @@ public class QuestionnaireHandler : MonoBehaviour
         //store the questions with the corresponding answers on a queue for better Extensibility
         foreach (QuestionAndAnswer qna in QnA)
         {
-            Debug.Log(qna.question);
             QnAQueue.Enqueue(qna);
         }
 
@@ -38,9 +37,18 @@ public class QuestionnaireHandler : MonoBehaviour
 
     public void onAnwer(Text answerHolder)
     {
-        string answer = answerHolder.text;
+        string answerGiven = answerHolder.text;
         QuestionAndAnswer questionAndAnswer = QnAQueue.Peek(); //gets the first item without removing it
-        if (answer.Equals(questionAndAnswer.answer))
+        string correctAnswer = questionAndAnswer.answer;
+
+        //if the answer depends on the current time
+        if (correctAnswer.Substring(0, 4) == "Time")
+        {
+            //get the corrected time given the change needed. Example currentTime + 40minutes
+            correctAnswer = getCorrectTimeAfterChange(correctAnswer.Substring(4)); 
+        }
+
+        if(answerGiven.Equals(correctAnswer))
         {
             CompletedTaskPanel.SetActive(true);
             QuestionnairePanel.SetActive(false);
@@ -53,5 +61,20 @@ public class QuestionnaireHandler : MonoBehaviour
             FailedTaskPanel.SetActive(true);
             QuestionnairePanel.SetActive(false);
         }
+        
+    }
+
+    private string getCorrectTimeAfterChange(string timeNeeded)
+    {
+        double timeToAdd = double.Parse(timeNeeded);
+        DateTime currentTime = DateTime.Now;
+
+        DateTime correctTime = currentTime.AddMinutes(timeToAdd);
+        string hour = TimeUIHandler.LeadingZero(correctTime.Hour);
+        string minute = TimeUIHandler.LeadingZero(correctTime.Minute);
+
+        string correctTimeFormated = hour + ":" + minute;
+
+        return correctTimeFormated;
     }
 }

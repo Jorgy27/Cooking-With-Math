@@ -87,6 +87,12 @@ public class DragAndDrop : MonoBehaviour
             touched = false;
             toDrag.position = originalPosition;
             this.GetComponent<Collider>().isTrigger = false; //disable the trigger when the material is used
+        }else if(other.gameObject.name == "Oven")
+        {
+            dragging = false;
+            touched = false;
+            toDrag.position = originalPosition;
+            this.GetComponent<Collider>().isTrigger = false;
         }
 
     }

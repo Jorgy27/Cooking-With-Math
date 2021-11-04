@@ -36,6 +36,9 @@ public class CraftingRecipe : ScriptableObject
         if (BowlHandler.itemsUsed.Count != materials.Count)
         {
             return false;
+        }else if (materials.Count == 0) //if there is no materials needed to craft return true;
+        {
+            return true;
         }
 
         //if the player used the wrong amounts of an item, the recipe won't be correct
