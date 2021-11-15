@@ -42,7 +42,7 @@ public class QuestionnaireHandler : MonoBehaviour
         string correctAnswer = questionAndAnswer.answer;
 
         //if the answer depends on the current time
-        if (correctAnswer.Substring(0, 4) == "Time")
+        if (correctAnswer.Length>4 && correctAnswer.Substring(0, 4) == "Time")
         {
             //get the corrected time given the change needed. Example currentTime + 40minutes
             correctAnswer = getCorrectTimeAfterChange(correctAnswer.Substring(4)); 

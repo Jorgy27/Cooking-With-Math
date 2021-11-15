@@ -24,7 +24,23 @@ public class DragAndDrop : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Input.touchCount != 1) //If there are less or more than one finger touching don't do anything
+        OnTouch();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag != "CookingMaterial")
+        {
+            dragging = false;
+            touched = false;
+            toDrag.position = originalPosition;
+            this.GetComponent<Collider>().isTrigger = false; //disable the trigger when the material is used
+        }
+    }
+
+    private void OnTouch()
+    {
+        if (Input.touchCount != 1) //If there are less or more than one finger touching don't do anything
         {
             dragging = false;
             touched = false;
@@ -35,7 +51,7 @@ public class DragAndDrop : MonoBehaviour
         Touch touch = Input.touches[0];
         Vector3 positionOfTouch = touch.position;
 
-        if(touch.phase == TouchPhase.Began)
+        if (touch.phase == TouchPhase.Began)
         {
             rayHitInfo = new RaycastHit();
             Ray ray = camera.ScreenPointToRay(positionOfTouch);  //Creates a Ray(line) from the camera to the first position that was touched
@@ -54,7 +70,7 @@ public class DragAndDrop : MonoBehaviour
             }
         }
 
-        if(touched && touch.phase == TouchPhase.Moved)
+        if (touched && touch.phase == TouchPhase.Moved)
         {
             dragging = true;
 
@@ -69,7 +85,7 @@ public class DragAndDrop : MonoBehaviour
             toDrag.position = worldPosition; //change the position of the object to the new world position
         }
 
-        if(dragging &&(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
+        if (dragging && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
         {
             dragging = false;
             touched = false;
@@ -77,24 +93,6 @@ public class DragAndDrop : MonoBehaviour
             previousPosition = new Vector3();
             toDrag.position = originalPosition;
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.name == "cookingBowl")
-        {
-            dragging = false;
-            touched = false;
-            toDrag.position = originalPosition;
-            this.GetComponent<Collider>().isTrigger = false; //disable the trigger when the material is used
-        }else if(other.gameObject.name == "Oven")
-        {
-            dragging = false;
-            touched = false;
-            toDrag.position = originalPosition;
-            this.GetComponent<Collider>().isTrigger = false;
-        }
-
     }
 
 }
