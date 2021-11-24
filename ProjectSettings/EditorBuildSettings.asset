@@ -8,4 +8,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstGame.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SecondGame.unity
+    guid: be884badb70b7e8419bc57a5ccf0fe59
+  - enabled: 1
+    path: Assets/Scenes/ThirdGame.unity
+    guid: 80037e8aade679d44ad725803bd23fab
+  - enabled: 1
+    path: Assets/Scenes/FourthGame/FourthGame_Part1.unity
+    guid: 0fb0ce88a3929764ca5410ad85bbfa59
+  - enabled: 1
+    path: Assets/Scenes/FourthGame/FourthGame_Part2.unity
+    guid: fb02e153f507a144887e2876fc2ce79e
+  - enabled: 1
+    path: Assets/Scenes/FifthGame.unity
+    guid: fddb1b98b5ddd6842a11294e655eb5dd
+  - enabled: 1
+    path: Assets/Scenes/SixthGame.unity
+    guid: 7af7cadd9860cec41b84e6229ec5d629
+  - enabled: 1
+    path: Assets/Scenes/SeventhGame/SeventhGame_Part1.unity
+    guid: c7a4d2fa1baaa3d4295b798a5c6e7299
+  - enabled: 1
+    path: Assets/Scenes/SeventhGame/SeventhGame_Part2.unity
+    guid: 2f58ae4a93d57cf4ea666d4c53edcf78
   m_configObjects: {}

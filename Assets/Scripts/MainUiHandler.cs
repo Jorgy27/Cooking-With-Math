@@ -95,12 +95,13 @@ public class MainUiHandler : MonoBehaviour
     {
         //reloads the active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+        BowlHandler.itemsUsed = new List<Items>(); //reset the list so it doesn't hold the previous items
     }
 
     public void goToNextScene()
     {
-        Debug.Log("Next Level");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        BowlHandler.itemsUsed = new List<Items>(); //reset the list so it doesn't hold the previous items
     }
 
     public void goToMenu()

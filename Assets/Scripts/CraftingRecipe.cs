@@ -9,7 +9,7 @@ public struct Items
     [SerializeField]
     public string itemName;
     [SerializeField]
-    [Range(1,999)]
+    [Range(1,9999)]
     public float itemAmount;
     [SerializeField]
     public string itemAmountLabel;
