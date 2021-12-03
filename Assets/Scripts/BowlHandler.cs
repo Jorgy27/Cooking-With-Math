@@ -23,7 +23,7 @@ public class BowlHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ActivateUI();
+        activateNumpadUI();
 
         collisionCounter += 1;
         //limits how many materials can be used to fill the bowl
@@ -38,7 +38,7 @@ public class BowlHandler : MonoBehaviour
         
     }
 
-    private void ActivateUI()
+    private void activateNumpadUI()
     {
         amountUI.SetActive(true);
     }

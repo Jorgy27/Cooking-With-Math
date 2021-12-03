@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fee08513dc6e60448cd5838f8fd2386, type: 3}
-  m_Name: "\u0394\u03B5\u03CD\u03C4\u03B5\u03C1\u03BF \u039C\u03AD\u03C1\u03BF\u03C2"
+  m_Name: "\u03A4\u03C3\u03AC\u03B9 \u039C\u03AD\u03C1\u03BF\u03C2 \u0394\u03B5\u03CD\u03C4\u03B5\u03C1\u03BF"
   m_EditorClassIdentifier: 
-  materials: []
+  materials:
+  - itemName: "\u03A4\u03C3\u03AC\u03B9"
+    itemAmount: 2
+    itemAmountLabel: ??

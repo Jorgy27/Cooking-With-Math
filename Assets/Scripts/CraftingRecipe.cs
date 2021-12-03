@@ -35,9 +35,11 @@ public class CraftingRecipe : ScriptableObject
         //if the player didn't use all the items he need, he won't be able to craft
         if (BowlHandler.itemsUsed.Count != materials.Count)
         {
+            Debug.Log(materials.ToString());
             return false;
         }else if (materials.Count == 0) //if there is no materials needed to craft return true;
         {
+            
             return true;
         }
 
@@ -47,7 +49,7 @@ public class CraftingRecipe : ScriptableObject
             for(int i=0;i < BowlHandler.itemsUsed.Count; i++){
                 if (items.itemName == BowlHandler.itemsUsed[i].itemName && items.itemAmount != BowlHandler.itemsUsed[i].itemAmount)
                 {
-                    Debug.Log("No");
+                    
                     flag = false;
                 }
             }

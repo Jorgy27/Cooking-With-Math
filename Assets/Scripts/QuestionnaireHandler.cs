@@ -47,14 +47,33 @@ public class QuestionnaireHandler : MonoBehaviour
             //get the corrected time given the change needed. Example currentTime + 40minutes
             correctAnswer = getCorrectTimeAfterChange(correctAnswer.Substring(4)); 
         }
+        else if (correctAnswer.Contains("Money")) //if the question has to do with the shop
+        {
+            //get the value of the amount of money left from shopping and then disable the ui of the shop
+            double amountLeft = GameObject.Find("ShopPanel").GetComponent<Shop>().amountLeft;
+            GameObject.Find("ShopPanel").SetActive(false);
+
+            correctAnswer = amountLeft.ToString();
+            correctAnswer= correctAnswer.Substring(0, 4);
+        }
 
         if(answerGiven.Equals(correctAnswer))
         {
-            CompletedTaskPanel.SetActive(true);
-            QuestionnairePanel.SetActive(false);
-            questionAndAnswer = QnAQueue.Dequeue(); //get the first item and remove it from the queue
+            //get the first item and remove it from the queue
+            questionAndAnswer = QnAQueue.Dequeue();
 
-            //TODO:set the next question if exists
+            if (QnAQueue.Count == 0) //if there is no other question then show the completedTask Panel
+            {
+                CompletedTaskPanel.SetActive(true);
+                QuestionnairePanel.SetActive(false);
+            }
+            else
+            {
+                questionAndAnswer = QnAQueue.Peek();
+                QuestionnairePanel.GetComponentInChildren<TextMeshProUGUI>().SetText(questionAndAnswer.question);
+
+            }
+
         }
         else
         {

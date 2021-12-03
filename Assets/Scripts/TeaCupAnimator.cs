@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeaCupHandler : MonoBehaviour
+public class TeaCupAnimator : MonoBehaviour
 {
     [SerializeField]
     private GameObject teaCupContent;

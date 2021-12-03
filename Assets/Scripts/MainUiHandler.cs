@@ -59,7 +59,7 @@ public class MainUiHandler : MonoBehaviour
         RecipePanel.SetActive(false);
     }
 
-    private void showTipPanel()
+    public void showTipPanel()
     {
         TipPanel.SetActive(true);
         

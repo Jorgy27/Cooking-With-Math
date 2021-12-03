@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ public class NumpadHandler : MonoBehaviour
     private GameObject numHead;
     private string numInput="";
 
-    public static float numValue = 0;
+    public float numValue = 0; //why static? TODO:check it out
 
     public void OnClickNumber(GameObject button)
     {
@@ -37,21 +38,26 @@ public class NumpadHandler : MonoBehaviour
         {
             //set the value of the amount chosen
             numValue = float.Parse(numInput);
-
-            int lastItemUsed = BowlHandler.itemsUsed.Count - 1; //get the index of the last item used
-            //creates the item that will update the values{itemAmount,itemAmountLabel} of the list itemsUsed
-            Items updateItem = BowlHandler.itemsUsed[lastItemUsed];
-            updateItem.itemAmount = numValue;
-            updateItem.itemAmountLabel = numInput;
-            //update the list item. It was originaly holding only the name of the item, now it has both the values
-            BowlHandler.itemsUsed[lastItemUsed] = updateItem;
+            passValueToBowl(numValue);
             
-            //reset the numpad values and turn the ui off
-            numValue = 0;
-            numInput = "";
-            numHead.GetComponent<Text>().text = numInput;
-            this.gameObject.SetActive(false);
         }
         
+    }
+
+    private void passValueToBowl(float numValue)
+    {
+        int lastItemUsed = BowlHandler.itemsUsed.Count - 1; //get the index of the last item used
+                                                            //creates the item that will update the values{itemAmount,itemAmountLabel} of the list itemsUsed
+        Items updateItem = BowlHandler.itemsUsed[lastItemUsed];
+        updateItem.itemAmount = numValue;
+        updateItem.itemAmountLabel = numInput;
+        //update the list item. It was originaly holding only the name of the item, now it has both the values
+        BowlHandler.itemsUsed[lastItemUsed] = updateItem;
+
+        //reset the numpad values and turn the ui off
+        numValue = 0;
+        numInput = "";
+        numHead.GetComponent<Text>().text = numInput;
+        this.gameObject.SetActive(false);
     }
 }

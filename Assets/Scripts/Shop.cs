@@ -10,13 +10,17 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private Text moneyText;
 
-    [SerializeField]
-    private GameObject CompletedTaskPanel;
+
     [SerializeField]
     private GameObject FailedTaskPanel;
+    [SerializeField]
+    private GameObject QuestionnairePanel;
 
     private double sumPrice =0.0;
     private int itemAmount;
+
+    [NonSerialized]
+    public double amountLeft=0.0;
 
     void Start()
     {
@@ -35,16 +39,15 @@ public class Shop : MonoBehaviour
 
     public void completeShopping()
     {
-        //close the shopping panel and activate the corresponding panels
-        GameObject.Find("ShopPanel").SetActive(false);
+
         if (sumPrice > money || sumPrice==0)
         {
             FailedTaskPanel.SetActive(true);
         }
         else
         {
-            CompletedTaskPanel.SetActive(true);
-            
+            amountLeft = money - sumPrice;
+            QuestionnairePanel.SetActive(true);
         }
     }
 }

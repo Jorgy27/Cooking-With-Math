@@ -1696,7 +1696,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1009012876}
+  - {fileID: 1007907972}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4368,10 +4368,11 @@ MonoBehaviour:
     \u03AE\u03B4\u03B7 \u03C4\u03BF \u03BD\u03B5\u03C1\u03CC \u03C3\u03C4\u03BF \u03BA\u03B1\u03C4\u03C3\u03B1\u03C1\u03BF\u03BB\u03AC\u03BA\u03B9
     \u03BC\u03B1\u03C2, \u03C0\u03C1\u03CC\u03C3\u03B8\u03B5\u03C3\u03B5 \u03BA\u03B1\u03B9
     \u03C4\u03B1 \u03C5\u03C0\u03CC\u03BB\u03BF\u03B9\u03C0\u03B1 \u03C5\u03BB\u03B9\u03BA\u03AC
-    \u03B3\u03B9\u03B1 \u03BD\u03B1 \u03C4\u03BF \u03B5\u03C4\u03BF\u03B9\u03BC\u03AC\u03C3\u03B5\u03B9\u03C2."
+    \u03B3\u03B9\u03B1 \u03BD\u03B1 \u03B5\u03C4\u03BF\u03B9\u03BC\u03AC\u03C3\u03B5\u03B9\u03C2
+    \u03C4\u03BF \u03C3\u03B9\u03C1\u03CC\u03C0\u03B9."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ddb28536a3485a4479274ff3add861e5, type: 2}
-  m_sharedMaterial: {fileID: -691966769597542211, guid: ddb28536a3485a4479274ff3add861e5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ccfe195a06ac9f47abc1a8cc610f801, type: 2}
+  m_sharedMaterial: {fileID: -5472505680250150465, guid: 2ccfe195a06ac9f47abc1a8cc610f801, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5248,7 +5249,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987482841}
   m_CullTransparentMesh: 1
---- !u!21 &1009012876
+--- !u!21 &1007907972
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -5257,7 +5258,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: 'ar_markerMaterial
 
-    -2728'
+    45906'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -5956,6 +5957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numHead: {fileID: 110060257}
+  numValue: 0
 --- !u!114 &1194495946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7097,8 +7099,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 7
   moneyText: {fileID: 742878413}
-  CompletedTaskPanel: {fileID: 1152665286}
   FailedTaskPanel: {fileID: 1372990380}
+  QuestionnairePanel: {fileID: 0}
 --- !u!114 &1382126273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7386,7 +7388,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ddb28536a3485a4479274ff3add861e5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2ccfe195a06ac9f47abc1a8cc610f801, type: 2}
   m_sharedMaterial: {fileID: -691966769597542211, guid: ddb28536a3485a4479274ff3add861e5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
