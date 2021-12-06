@@ -50,11 +50,11 @@ public class QuestionnaireHandler : MonoBehaviour
         else if (correctAnswer.Contains("Money")) //if the question has to do with the shop
         {
             //get the value of the amount of money left from shopping and then disable the ui of the shop
-            double amountLeft = GameObject.Find("ShopPanel").GetComponent<Shop>().amountLeft;
+            decimal amountLeft = GameObject.Find("ShopPanel").GetComponent<Shop>().amountLeft;
             GameObject.Find("ShopPanel").SetActive(false);
 
             correctAnswer = amountLeft.ToString();
-            correctAnswer= correctAnswer.Substring(0, 4);
+            correctAnswer = correctAnswer.Substring(0, 4);
         }
 
         if(answerGiven.Equals(correctAnswer))
@@ -71,7 +71,7 @@ public class QuestionnaireHandler : MonoBehaviour
             {
                 questionAndAnswer = QnAQueue.Peek();
                 QuestionnairePanel.GetComponentInChildren<TextMeshProUGUI>().SetText(questionAndAnswer.question);
-
+                QuestionnairePanel.SetActive(false);
             }
 
         }

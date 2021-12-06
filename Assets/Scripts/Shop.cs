@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     [SerializeField]
-    private double money;
+    private decimal money = 7;
     [SerializeField]
     private Text moneyText;
 
@@ -16,11 +16,11 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private GameObject QuestionnairePanel;
 
-    private double sumPrice =0.0;
+    private decimal sumPrice =0;
     private int itemAmount;
 
     [NonSerialized]
-    public double amountLeft=0.0;
+    public decimal amountLeft =0;
 
     void Start()
     {
@@ -31,7 +31,7 @@ public class Shop : MonoBehaviour
     public void addItemToBuy(GameObject item)
     {
         itemAmount = int.Parse(item.GetComponentsInChildren<Text>()[1].text) + 1;
-        sumPrice += Double.Parse(item.GetComponentsInChildren<Text>()[0].text);
+        sumPrice += Decimal.Parse(item.GetComponentsInChildren<Text>()[0].text);
 
         item.GetComponentsInChildren<Text>()[1].text = itemAmount.ToString();
  
@@ -46,7 +46,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            amountLeft = money - sumPrice;
+            amountLeft =money - sumPrice;
             QuestionnairePanel.SetActive(true);
         }
     }
