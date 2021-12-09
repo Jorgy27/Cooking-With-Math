@@ -104,8 +104,4 @@ public class MainUiHandler : MonoBehaviour
         BowlHandler.itemsUsed = new List<Items>(); //reset the list so it doesn't hold the previous items
     }
 
-    public void goToMenu()
-    {
-        Debug.Log("Go to Menu");
-    }
 }
