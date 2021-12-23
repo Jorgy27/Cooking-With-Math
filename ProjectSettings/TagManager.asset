@@ -7,11 +7,13 @@ TagManager:
   - MovingObject
   - CookingMaterial
   - RecipeUI
+  - ChangeableValue
+  - ChangedValue
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Numpad
   - Water
   - UI
   - 

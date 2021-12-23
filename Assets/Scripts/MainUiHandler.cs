@@ -24,6 +24,9 @@ public class MainUiHandler : MonoBehaviour
     private GameObject CompletedTaskPanel;
 
     [SerializeField]
+    private GameObject ChangeValuesPanel;
+
+    [SerializeField]
     private CraftingRecipe recipe;
 
     private void Start()
@@ -89,6 +92,7 @@ public class MainUiHandler : MonoBehaviour
         {
             FailedTaskPanel.SetActive(true);
         }
+        
     }
 
     public void restartScene()
@@ -102,6 +106,22 @@ public class MainUiHandler : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         BowlHandler.itemsUsed = new List<Items>(); //reset the list so it doesn't hold the previous items
+        
+    }
+    
+    public void goToMenu()
+    {
+        SceneManager.LoadScene(1);
+        BowlHandler.itemsUsed = new List<Items>(); //reset the list so it doesn't hold the previous items
     }
 
+    public void openChangeValuesPanel()
+    {
+        ChangeValuesPanel.SetActive(true);
+    }
+
+    public void closeChangeValuesPanel()
+    {
+        ChangeValuesPanel.SetActive(false);
+    }
 }

@@ -21,6 +21,7 @@ public struct Items
         this.itemAmount = itemAmount;
         this.itemAmountLabel = itemAmountLabel;
     }
+
 }
 
 [CreateAssetMenu(fileName = "New Recipe", menuName = "Recipe")]

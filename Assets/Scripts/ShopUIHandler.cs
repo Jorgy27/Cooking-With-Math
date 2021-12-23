@@ -40,6 +40,7 @@ public class ShopUIHandler : MonoBehaviour
             if (Physics.Raycast(ray, out rayHitInfo) && rayHitInfo.collider.name == "superMarket") //And check if the object hit has the appropriate Tag
             {
                 ShopPanel.SetActive(true);
+                rayHitInfo.collider.enabled = false; //Disable the shop collider after it is opened
             }
         }
     }

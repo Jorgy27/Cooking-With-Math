@@ -16,4 +16,4 @@ MonoBehaviour:
   materials:
   - itemName: "\u0396\u03AC\u03C7\u03B1\u03C1\u03B7"
     itemAmount: 6
-    itemAmountLabel: "?? \u03BA\u03BF\u03CD\u03C0\u03B5\u03C2"
+    itemAmountLabel: ??

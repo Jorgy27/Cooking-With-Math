@@ -10,4 +10,10 @@ public struct QuestionAndAnswer
     public string question;
     [SerializeField]
     public string answer;
+
+    public QuestionAndAnswer(string question, string answer)
+    {
+        this.question = question;
+        this.answer = answer;
+    }
 }

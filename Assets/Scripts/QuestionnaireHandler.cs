@@ -71,6 +71,7 @@ public class QuestionnaireHandler : MonoBehaviour
             {
                 questionAndAnswer = QnAQueue.Peek();
                 QuestionnairePanel.GetComponentInChildren<TextMeshProUGUI>().SetText(questionAndAnswer.question);
+                QuestionnairePanel.GetComponentInChildren<InputField>().text = "";
                 QuestionnairePanel.SetActive(false);
             }
 
