@@ -1696,7 +1696,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1352992274}
+  - {fileID: 1402498275}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4229,7 +4229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0395\u03C0\u03AD\u03BB\u03B5\u03BE\u03B5 \u03C4\u03BF \u03C0\u03BF\u03C3\u03BF
+  m_text: "\u0395\u03C0\u03AD\u03BB\u03B5\u03BE\u03B5 \u03C4\u03BF \u03C0\u03BF\u03C3\u03CC
     \u03C0\u03BF\u03C5 \u03B8\u03AD\u03BB\u03B5\u03B9\u03C2!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7067,35 +7067,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: -5.2355957, y: 3.4910011}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!21 &1352992274
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'ar_markerMaterial
-
-    45872'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 409ff741c4b443f48d3022643ebedbaf, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1372990380
 GameObject:
   m_ObjectHideFlags: 0
@@ -7461,6 +7432,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387250118}
   m_CullTransparentMesh: 1
+--- !u!21 &1402498275
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'ar_markerMaterial
+
+    33900'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 409ff741c4b443f48d3022643ebedbaf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1438219835
 GameObject:
   m_ObjectHideFlags: 0
@@ -10803,6 +10803,7 @@ MonoBehaviour:
   QuestionnairePanel: {fileID: 973446185}
   FailedTaskPanel: {fileID: 1372990380}
   CompletedTaskPanel: {fileID: 1152665286}
+  ChangeValuesPanel: {fileID: 0}
   recipe: {fileID: 11400000, guid: dcb4747159cf2c841b4efa25698f781b, type: 2}
 --- !u!114 &2112356661
 MonoBehaviour:

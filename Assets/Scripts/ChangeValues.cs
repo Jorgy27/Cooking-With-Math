@@ -21,6 +21,7 @@ public class ChangeValues : MonoBehaviour
     private List<string> answers = new List<string>();
     private List<QuestionAndAnswer> QnA;
     private QuestionnaireHandler questionnaireHandler;
+    private bool timeRelated = false;
 
     private void Start()
     {
@@ -62,15 +63,23 @@ public class ChangeValues : MonoBehaviour
         }
         else
         {
-            //set the containers based on the answers saved on the list of questions and answers
-            List<string> answerLabels = new List<string> { "Περίμετρος", "Εμβαδόν", "Όγκος" };
-            int i = 0;
-            foreach(string answer in answers)
+            if (answers[0].Length > 4 && answers[0].Substring(0, 4) == "Time")
             {
-                GameObject answerContainer = Instantiate(valueObject);
-                answerContainer.transform.SetParent(canvas, false);
-                answerContainer.GetComponentInChildren<Text>().text = answerLabels[i].ToString()+": ";
-                i++;
+                timeRelated = true;
+
+            }
+            else
+            {
+                //set the containers based on the answers saved on the list of questions and answers
+                List<string> answerLabels = new List<string> { "Περίμετρος", "Εμβαδόν", "Όγκος με ύψος 1.5" };
+                int i = 0;
+                foreach (string answer in answers)
+                {
+                    GameObject answerContainer = Instantiate(valueObject);
+                    answerContainer.transform.SetParent(canvas, false);
+                    answerContainer.GetComponentInChildren<Text>().text = answerLabels[i].ToString() + ": ";
+                    i++;
+                }
             }
         }
 
@@ -96,19 +105,42 @@ public class ChangeValues : MonoBehaviour
         }
 
         questionnaireHandler = QuestionnairePanel.GetComponent<QuestionnaireHandler>();
-        for (int i = 0; i < QnA.Count; i++)
+        string changedAnswer;
+
+        if (timeRelated)
         {
-            string changedAnswer = changedValues[i + 2].GetComponentInChildren<InputField>().text;
+            changedAnswer = changedValues[0].GetComponentInChildren<InputField>().text;
+
             if (changedAnswer == "")
             {
                 resetChangedValues();
             }
             else
             {
-                questionnaireHandler.QnA[i] = new QuestionAndAnswer(QnA[i].question, changedAnswer);
+                changedAnswer = "Time+" + changedValues[0].GetComponentInChildren<InputField>().text.Split(' ')[0];
+                questionnaireHandler.QnA[0] = new QuestionAndAnswer(QnA[0].question, changedAnswer);
             }
-           
+
         }
+        else
+        {
+            //if it is not time related then changable questions exist only in the last scene that holds multiple questions and answers
+            for (int i = 0; i < QnA.Count; i++)
+            {
+                changedAnswer = changedValues[i + 2].GetComponentInChildren<InputField>().text;
+
+                if (changedAnswer == "")
+                {
+                    resetChangedValues();
+                }
+                else
+                {
+                    questionnaireHandler.QnA[i] = new QuestionAndAnswer(QnA[i].question, changedAnswer);
+                }
+
+            }
+        }
+        
     }
 
     public void setChangedValuesTypeRecipe()

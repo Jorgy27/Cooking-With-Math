@@ -17,7 +17,7 @@ public class BowlAnimation : MonoBehaviour
     void Start()
     {
         setOriginalPositionOfBowlContent();
-        numberOfMaterials = GameObject.FindGameObjectsWithTag("CookingMaterial").Length;
+        //numberOfMaterials = GameObject.FindGameObjectsWithTag("CookingMaterial").Length;
     }
 
     private void OnTriggerEnter(Collider other)

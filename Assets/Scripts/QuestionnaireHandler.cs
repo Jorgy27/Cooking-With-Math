@@ -81,7 +81,6 @@ public class QuestionnaireHandler : MonoBehaviour
             FailedTaskPanel.SetActive(true);
             QuestionnairePanel.SetActive(false);
         }
-        
     }
 
     private string getCorrectTimeAfterChange(string timeNeeded)

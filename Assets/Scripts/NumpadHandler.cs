@@ -12,7 +12,7 @@ public class NumpadHandler : MonoBehaviour
     private GameObject numHead;
     private string numInput="";
 
-    public float numValue = 0; //why static? TODO:check it out
+    public float numValue = 0;
 
     public void OnClickNumber(GameObject button)
     {
@@ -47,7 +47,7 @@ public class NumpadHandler : MonoBehaviour
     private void passValueToBowl(float numValue)
     {
         int lastItemUsed = BowlHandler.itemsUsed.Count - 1; //get the index of the last item used
-                                                            //creates the item that will update the values{itemAmount,itemAmountLabel} of the list itemsUsed
+        //creates the item that will update the values{itemAmount,itemAmountLabel} of the list itemsUsed
         Items updateItem = BowlHandler.itemsUsed[lastItemUsed];
         updateItem.itemAmount = numValue;
         updateItem.itemAmountLabel = numInput;
