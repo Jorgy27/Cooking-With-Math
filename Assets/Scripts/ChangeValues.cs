@@ -18,6 +18,7 @@ public class ChangeValues : MonoBehaviour
 
     private float originalAmountOfRecipe;
     private bool isRecipe;
+    private bool variablesChanged = false;
     private List<string> answers = new List<string>();
     private List<QuestionAndAnswer> QnA;
     private QuestionnaireHandler questionnaireHandler;
@@ -25,6 +26,7 @@ public class ChangeValues : MonoBehaviour
 
     private void Start()
     {
+        
         if (recipe.materials.Count != 0)
         {
             isRecipe = true;
@@ -40,8 +42,10 @@ public class ChangeValues : MonoBehaviour
                 answers.Add(qna.answer);
             }
         }
+        variablesChanged = true;
         getValuesForChange();
     }
+
     public void getValuesForChange()
     {
         valuesToChange = GameObject.FindGameObjectsWithTag("ChangeableValue");
@@ -88,21 +92,6 @@ public class ChangeValues : MonoBehaviour
     public void setChangedValuesTypeQuestions()
     {
         GameObject[] changedValues = GameObject.FindGameObjectsWithTag("ChangedValue");
-        for (int i = 0; i <= changedValues.Length - (answers.Count+1); i++)
-        {
-            string changed = changedValues[i].GetComponentInChildren<InputField>().text;
-            //if the was no change done then keep the original text that is already kept within the placeholder of the input field
-            if(changed == "")
-            {
-                string preText = changedValues[i].GetComponentInChildren<InputField>().placeholder.GetComponent<Text>().text;
-                valuesToChange[i].GetComponentInChildren<TMP_Text>().SetText(preText);
-            }
-            else
-            {
-                valuesToChange[i].GetComponentInChildren<TMP_Text>().SetText(changed);
-            }
-            
-        }
 
         questionnaireHandler = QuestionnairePanel.GetComponent<QuestionnaireHandler>();
         string changedAnswer;
@@ -140,6 +129,7 @@ public class ChangeValues : MonoBehaviour
 
             }
         }
+        changeUiText(changedValues);
         
     }
 
@@ -177,18 +167,49 @@ public class ChangeValues : MonoBehaviour
 
     public void resetChangedValues()
     {
-        if (isRecipe)
+        if (variablesChanged)
         {
-            recipe.materials[0] = new Items(recipe.materials[0].itemName, originalAmountOfRecipe, recipe.materials[0].itemAmountLabel);
+            if (isRecipe)
+            {
+                recipe.materials[0] = new Items(recipe.materials[0].itemName, originalAmountOfRecipe, recipe.materials[0].itemAmountLabel);
+            }
+            else
+            {
+                questionnaireHandler = QuestionnairePanel.GetComponent<QuestionnaireHandler>();
+                for (int i = 0; i < QnA.Count; i++)
+                {
+                    questionnaireHandler.QnA[i] = new QuestionAndAnswer(QnA[i].question, QnA[i].answer);
+                }
+            }
+        }    
+    }
+
+    private void changeUiText(GameObject[] changedValueTextUI)
+    {
+        int amountOfAnswersToChange;
+        if (timeRelated) //If it is timerelated then there is no need to change the answer of the question since it computes it on real time
+        {
+            amountOfAnswersToChange = 0;
         }
         else
         {
-            questionnaireHandler = QuestionnairePanel.GetComponent<QuestionnaireHandler>();
-            for (int i = 0; i < QnA.Count; i++)
-            {
-                questionnaireHandler.QnA[i] = new QuestionAndAnswer(QnA[i].question, QnA[i].answer);
-            }
+            amountOfAnswersToChange = answers.Count;
         }
-        
+
+        for (int i = 0; i <= changedValueTextUI.Length - (amountOfAnswersToChange + 1); i++)
+        {
+            string changed = changedValueTextUI[i].GetComponentInChildren<InputField>().text;
+            //if the was no change done then keep the original text that is already kept within the placeholder of the input field
+            if (changed == "")
+            {
+                string preText = changedValueTextUI[i].GetComponentInChildren<InputField>().placeholder.GetComponent<Text>().text;
+                valuesToChange[i].GetComponentInChildren<TMP_Text>().SetText(preText);
+            }
+            else
+            {
+                valuesToChange[i].GetComponentInChildren<TMP_Text>().SetText(changed);
+            }
+
+        }
     }
 }
