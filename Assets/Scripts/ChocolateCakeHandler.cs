@@ -12,7 +12,7 @@ public class ChocolateCakeHandler : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         numberOfCollisions += 1;
-        if (numberOfCollisions != 3)
+        if (numberOfCollisions <= 2)
         {
             Questionnaire.SetActive(true);
         }

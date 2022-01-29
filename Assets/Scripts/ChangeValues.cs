@@ -129,27 +129,13 @@ public class ChangeValues : MonoBehaviour
 
             }
         }
-        changeUiText(changedValues);
-        
+        changeUiText(changedValues); 
     }
 
     public void setChangedValuesTypeRecipe()
     {
         GameObject[] changedValues = GameObject.FindGameObjectsWithTag("ChangedValue");
-        for(int i=0; i <= changedValues.Length - 2; i++)
-        {
-            string changed = changedValues[i].GetComponentInChildren<InputField>().text;
-            //if the was no change done then keep the original text that is already kept within the placeholder of the input field
-            if (changed == "")
-            {
-                string preText = changedValues[i].GetComponentInChildren<InputField>().placeholder.GetComponent<Text>().text;
-                valuesToChange[i].GetComponentInChildren<TMP_Text>().SetText(preText);
-            }
-            else
-            {
-                valuesToChange[i].GetComponentInChildren<TMP_Text>().SetText(changed);
-            }
-        }
+        changeUiText(changedValues);
 
         string newValue = changedValues[changedValues.Length - 1].GetComponent<InputField>().text;
         if (newValue == "")
@@ -160,9 +146,7 @@ public class ChangeValues : MonoBehaviour
         {
             //update recipe with the new value
             recipe.materials[0] = new Items(recipe.materials[0].itemName, float.Parse(newValue), recipe.materials[0].itemAmountLabel);
-        }
-
-        
+        }      
     }
 
     public void resetChangedValues()
@@ -191,6 +175,10 @@ public class ChangeValues : MonoBehaviour
         {
             amountOfAnswersToChange = 0;
         }
+        else if (isRecipe)
+        {
+            amountOfAnswersToChange = 1; //because the recipe type exercises only have one answer
+        }
         else
         {
             amountOfAnswersToChange = answers.Count;
@@ -209,7 +197,6 @@ public class ChangeValues : MonoBehaviour
             {
                 valuesToChange[i].GetComponentInChildren<TMP_Text>().SetText(changed);
             }
-
         }
     }
 }

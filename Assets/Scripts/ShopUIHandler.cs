@@ -22,11 +22,11 @@ public class ShopUIHandler : MonoBehaviour
 
     private void OpenShop()
     {
-        if (Input.touchCount != 1) //If there are less or more than one finger touching don't do anything
+        //If there are less or more than one finger touching don't do anything
+        if (Input.touchCount != 1) 
         {
             return;
         }
-
         //Get the position of the first touch
         Touch touch = Input.touches[0];
         Vector3 positionOfTouch = touch.position;
@@ -34,10 +34,8 @@ public class ShopUIHandler : MonoBehaviour
         if (touch.phase == TouchPhase.Began)
         {
             rayHitInfo = new RaycastHit();
-            Ray ray = camera.ScreenPointToRay(positionOfTouch);  //Creates a Ray(line) from the camera to the first position that was touched
-
-            //Returns true if ray collides with any object using {ray} as point of origin and if true {rayHitInfo} contains information about the object hit
-            if (Physics.Raycast(ray, out rayHitInfo) && rayHitInfo.collider.name == "superMarket") //And check if the object hit has the appropriate Tag
+            Ray ray = camera.ScreenPointToRay(positionOfTouch);
+            if (Physics.Raycast(ray, out rayHitInfo) && rayHitInfo.collider.name == "superMarket")
             {
                 ShopPanel.SetActive(true);
                 rayHitInfo.collider.enabled = false; //Disable the shop collider after it is opened

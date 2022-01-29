@@ -45,11 +45,11 @@ EditorBuildSettings:
     path: Assets/Scenes/EigthGame/EighthGame_Part2.unity
     guid: 93a83b055eb0d2e4fa1bbe55e8cb7d62
   - enabled: 1
-    path: Assets/Scenes/NinthGame.unity
-    guid: 273c036578a7d5a4380ee9e214229c7a
-  - enabled: 1
     path: Assets/Scenes/TenthGame.unity
     guid: d300440d8ad52b8449d2d8e691d05479
+  - enabled: 1
+    path: Assets/Scenes/NinthGame.unity
+    guid: 273c036578a7d5a4380ee9e214229c7a
   - enabled: 1
     path: Assets/Scenes/EleventhGame/EleventhGame_Part1.unity
     guid: 21edf70212138034cb4574ec881d9168
